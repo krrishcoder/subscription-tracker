@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import { getUser, getUsers } from '../controllers/user.controller.js'
+import { getUser, getUsers, updateUser } from '../controllers/user.controller.js'
 import { authorize } from '../middlewares/auth.middleware.js';
 
 const userRouter = Router()
@@ -10,8 +10,8 @@ const userRouter = Router()
 userRouter.get("/:id", authorize , getUser);
 userRouter.get("/", getUsers );
 userRouter.post("/",(req,res)=> res.send({title:'Create new user'}))
-userRouter.put("/:id",(req,res)=> res.send({title:'update user'}))
+userRouter.put("/:id", authorize, updateUser)
 userRouter.delete("/:id",(req,res)=> res.send({title:'delete user'}))
 
 
-export default userRouter;
+export default userRouter; 
