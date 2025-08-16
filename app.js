@@ -1,5 +1,6 @@
 import express from 'express'; 
 import { PORT } from './config/env.js'
+import cors from 'cors';
 
 import userRouter from './routes/user.routes.js'
 import subsRouter from './routes/subscription.routes.js'
@@ -15,6 +16,8 @@ const app = express();
 
 
 app.set('trust proxy', true);
+app.use(cors());
+
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
