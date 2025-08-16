@@ -1,0 +1,8 @@
+{
+    "eslint.rules.customizations": [
+
+    ],
+    "eslint.codeActionsOnSave.options": {
+        
+    }
+}
